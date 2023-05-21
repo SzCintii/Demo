@@ -2,8 +2,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
-class FirestoreInitializer {
-    fun initialize() {
+/*class FirestoreInitializer {
+    fun init() {
 
         if (FirebaseApp.getApps().isEmpty()) {
             FirebaseApp.initializeApp()
@@ -86,3 +86,5 @@ fun main() {
         println(barrel)
     }
 }
+
+ */

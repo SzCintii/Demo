@@ -1,6 +1,6 @@
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
-
+/*
 class FirestoreInitializer {
     fun initialize() {
 
@@ -22,6 +22,7 @@ class FirestoreInitializer {
 
     }
 }
+
 
 
 data class Employee(
@@ -84,3 +85,5 @@ fun main() {
         println(employee)
     }
 }
+
+ */

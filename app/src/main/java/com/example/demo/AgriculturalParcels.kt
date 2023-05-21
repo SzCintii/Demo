@@ -11,7 +11,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
 
-data class AgriculturalParcels(){
+    class AgriculturalParcels(){
     var parcelNumber : Int
     var areaPlantedAre : String
     var areaPlantedCentiare : String
@@ -25,6 +25,7 @@ data class AgriculturalParcels(){
     var rootStock : String
     var vineyardId : String
     var yearPlanted : Int
+
     init {
         parcelNumber = 0
         areaPlantedAre = ""
@@ -137,7 +138,7 @@ class AgriculturalParcelsDatabase {
                 .await()
 
             var agriculturalParcelsResult = getAgriculturalParcels(ref)
-            agriculturalParcels.parcelId = ref.parcelId
-            agriculturalParcels.postValue(agriculturalParcels)
+            agriculturalParcels.postValue(agriculturalParcelsResult)
         }
-        return agriculturalParcels.value!!
+        return agriculturalParcels.value!!}
+    }

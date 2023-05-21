@@ -11,20 +11,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
-
-data class Batches(){
-    var agriculturalParcel : agriculturalParcel
+ class Batches(){
+    var agriculturalParcel : String
     var createDate: Date
     var email : String
-    var harvestYearId: Harvestyear.id
+    var harvestYearId: String
     var historic: String
     var name : String
-    var wineStorages : wineStorages
+    var wineStorages : String
     init {
         agriculturalParcel = ""
         createDate = Date()
         email = ""
-        harvestYearId = Harvestyear.id
+        harvestYearId = ""
         historic = ""
         name = ""
         wineStorages = ""
@@ -42,19 +41,19 @@ class BatchesDatabase {
 
         var batches = Batches()
 
-        agriculturalParcel.id = document!!.id
+        batches.agriculturalParcel = document!!.data!!.get("agriculturalParcel").toString()
 
         batches.createDate = (document!!.data!!.get("startDate") as Timestamp).toDate()
 
         batches.email = document.data!!.get("email").toString()
 
-        batches.HarvestyearId = document.data!!.get("harvestYearId") as Harvestyear
+        batches.harvestYearId = (document.data!!.get("harvestYearId")).toString()
 
         batches.historic = document!!.get("historic").toString()
 
         batches.name = document!!.get("name").toString()
 
-        batches.wineStorages = document!!.get("wineStorages") as WineStorages
+        batches.wineStorages = (document!!.get("wineStorages")).toString()
 
         return Batches()
 
@@ -65,19 +64,19 @@ class BatchesDatabase {
 
         var batches = Batches()
 
-        agriculturalParcel.id = snapshot!!.id
+        batches.agriculturalParcel = snapshot!!.data!!.get("agriculturalParcel").toString()
 
         batches.createDate = (snapshot!!.data!!.get("startDate") as Timestamp).toDate()
 
         batches.email = snapshot.data!!.get("email").toString()
 
-        batches.HarvestyearId = snapshot.data!!.get("harvestYearId") as Harvestyear
+        batches.harvestYearId = snapshot.data!!.get("harvestYearId").toString()
 
         batches.historic = snapshot!!.get("historic").toString()
 
         batches.name = snapshot!!.get("name").toString()
 
-        batches.wineStorages = snapshot!!.get("wineStorages") as WineStorages
+        batches.wineStorages = snapshot!!.get("wineStorages").toString()
 
         return batches
 
@@ -101,8 +100,10 @@ class BatchesDatabase {
                 }
                 .await()
 
-            var batchesResult = getbatches(ref)
-           batchesResult.id = ref.id
+            var batchesResult = BatchesDatabase().getBatches(ref)
+            //  batchesResult.id = ref.id
             batches.postValue(batchesResult)
         }
         return batches.value!!
+    }
+}

@@ -1,6 +1,6 @@
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
-
+/*
 class FirestoreInitializer {
     fun initialize() {
 
@@ -77,3 +77,5 @@ fun main() {
         println(landparcel)
     }
 }
+
+ */

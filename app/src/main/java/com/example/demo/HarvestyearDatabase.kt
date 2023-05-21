@@ -13,31 +13,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.Date
 
-/*class FirestoreInitializer {
-    fun initialize() {
-
-        if (FirebaseApp.getApps().isEmpty()) {
-            FirebaseApp.initializeApp()
-        }
-
-        val db = FirebaseFirestore.getInstance()
-
-        val winegrowerProfileCollection = db.collection("My Winegrowerprofile")
-
-        val vineyardsCollection = db.collection("My Vineyards")
-
-        val barrelsCollection = db.collection("Barrels")
-
-        val employeesCollection = db.collection("Employees")
-
-        val landparcelsCollection = db.collection("Landparcels")
-
-        val harvestYearCollection = db.collection("Harvestyear")
-
-    }
-}
-*/
-data class Harvestyear(){
+class Harvestyear(){
     var id: String
     var name: String
     var startDate: Date
@@ -92,8 +68,6 @@ class HarvestyearDatabase {
 
 
     suspend fun getHarvestyear(): Harvestyear {
-        //val document = harvestYearCollection.document(name).get()
-        //return if (document.exists()) document.toObject(Harvestyear::class.java) else null
 
         var harvestYear = MutableLiveData<Harvestyear>()
         withContext(Dispatchers.IO) {
@@ -115,37 +89,6 @@ class HarvestyearDatabase {
             harvestYear.postValue(harvestyearResult)
         }
         return harvestYear.value!!
-
-        /*fun getAllHarvestyears(): List<Harvestyear> {
-            val harvestyears = mutableListOf<Harvestyear>()
-            val documents = harvestYearCollection.get().get().documents
-            for (document in documents) {
-                harvestyears.add(document.toObject(Harvestyear::class.java))
-            }
-            return harvestyears
-        }
     }
-         */
+}
 
-/*
-fun main() {
-    val firestoreInitializer = FirestoreInitializer()
-    firestoreInitializer.initialize()
-
-    val harvestyear = Harvestyear("2022", "2022-01-01", "2022-12-31")
-    val harvestyearDatabase = HarvestyearDatabase()
-    harvestyearDatabase.addHarvestyear(harvestyear)
-
-    val retrievedHarvestyear = harvestyearDatabase.getHarvestyear("2022")
-    if (retrievedHarvestyear != null) {
-        println("Retrieved harvest year: $retrievedHarvestyear")
-    } else {
-        println("Harvest year not found")
-    }
-
-    val allHarvestyears = harvestyearDatabase.getAllHarvestyears()
-    println("All harvest years:")
-    for (harvestyear in allHarvestyears) {
-        println(harvestyear)
-    }
-}*/

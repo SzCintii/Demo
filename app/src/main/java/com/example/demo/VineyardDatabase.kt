@@ -12,8 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.Date
-
-data class Harvestyear(){
+/*
+class Vineyardr(){
     var id: String
     var name: String
     var startDate: Date
@@ -26,7 +26,7 @@ data class Harvestyear(){
     }
 }
 
-class HarvestyearDatabase {
+class VineyardDatabase {
     private val harvestYearCollection = FirebaseFirestore.getInstance().collection("Harvestyear")
 
     fun addHarvestyear(harvestyear: Harvestyear) {
@@ -88,5 +88,9 @@ class HarvestyearDatabase {
             harvestyearResult.id = ref.id
             harvestYear.postValue(harvestyearResult)
         }
-        return harvestYear.value!!
 
+        return harvestYear.value!!
+    }
+}
+
+ */

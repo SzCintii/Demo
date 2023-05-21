@@ -12,7 +12,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
 
-data class Cellars(){
+class Cellars(){
     var id: String
     var name: String
     var adress: String
@@ -89,6 +89,7 @@ class CellarsDatabase {
 
             var cellarsResult = getCellars(ref)
             cellarsResult.id = ref.id
-            .postValue(cellarsResult)
         }
         return cellars.value!!
+    }
+}
