@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demo.R
@@ -32,21 +33,18 @@ class BasicInfoFragment : Fragment() {
 
         viewModel.navigateToCellar.observe(viewLifecycleOwner, Observer {
             if (it) {
-                btnNavigateToCellarClicked()}
+                findNavController().navigate(BasicInfoFragmentDirections.actionBasicInfoFragmentToBatchesFragment())
+                viewModel.navigtionFinished()
+
+            }
         })
         viewModel.navigateToVineyard.observe(viewLifecycleOwner, Observer {
             if (it) {
-                btnNavigateToVineyard()}
+                findNavController().navigate(BasicInfoFragmentDirections.actionBasicInfoFragmentToVineyardFragment())
+                viewModel.navigtionFinished()
+            }
         })
         return binding.root
-    }
-
-    private fun btnNavigateToCellarClicked() {
-
-        requireView().findNavController().navigate(BasicInfoFragmentDirections.action_basicInfoFragment_to_batchesFragment())
-    }
-    private fun btnNavigateToVineyard() {
-        requireView().findNavController().navigate(BasicInfoFragmentDirections.action_basicInfoFragment_to_vineyardFragment())
     }
 
 }

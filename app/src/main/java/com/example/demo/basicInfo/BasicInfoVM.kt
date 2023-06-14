@@ -14,13 +14,18 @@ class BasicInfoVM : ViewModel() {
         get() {
             return _navigateToCellar
         }
-    private var _navigateToVineyard= MutableLiveData<Boolean>()
+    private var _navigateToVineyard = MutableLiveData<Boolean>()
     val navigateToVineyard : LiveData<Boolean>
         get() {
             return _navigateToVineyard
         }
 
     init {
+        _navigateToCellar.value = false
+        _navigateToVineyard.value = false
+    }
+
+    fun navigtionFinished() {
         _navigateToCellar.value = false
         _navigateToVineyard.value = false
     }

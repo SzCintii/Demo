@@ -7,8 +7,7 @@
     <fragment
         android:id="@+id/basicInfoFragment"
         android:name="com.example.demo.basicInfo.BasicInfoFragment"
-        android:label="fragment_basic_info"
-        tools:layout="@layout/fragment_basic_info" >
+        android:label="BasicInfoFragment" >
         <action
             android:id="@+id/action_basicInfoFragment_to_vineyardFragment"
             app:destination="@id/vineyardFragment" />
@@ -17,13 +16,28 @@
             app:destination="@id/batchesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/batchesFragment"
-        android:name="com.example.demo.cellar.BatchesFragment"
-        android:label="fragment_batches"
-        tools:layout="@layout/fragment_batches" />
-    <fragment
         android:id="@+id/vineyardFragment"
         android:name="com.example.demo.vineyard.VineyardFragment"
-        android:label="fragment_vineyard"
-        tools:layout="@layout/fragment_vineyard" />
+        android:label="VineyardFragment" >
+        <action
+            android:id="@+id/action_vineyardFragment_to_yardFragment"
+            app:destination="@id/yardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/batchesFragment"
+        android:name="com.example.demo.cellar.BatchesFragment"
+        android:label="BatchesFragment" >
+        <action
+            android:id="@+id/action_batchesFragment_to_cellarFragment"
+            app:destination="@id/cellarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yardFragment"
+        android:name="com.example.demo.vineyard.YardFragment"
+        android:label="fragment_yard"
+        tools:layout="@layout/fragment_yard" />
+    <fragment
+        android:id="@+id/cellarFragment"
+        android:name="com.example.demo.cellar.CellarFragment"
+        android:label="CellarFragment" />
 </navigation>

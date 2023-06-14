@@ -5,39 +5,39 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.demo.cellar.BatchesVM" />
+            type="com.example.demo.cellar.CellarVM" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".cellar.BatchesFragment">
+        tools:context=".cellar.CellarFragment">
+
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Batches" />
+            android:text="Adress: Examplestraat 30" />
 
         <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of creation: January 20, 2021 at 10:31:56 AM" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Liters: 120" />
-
-        <Button
-            android:id="@+id/buttonCellar"
+            android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cellar"
-            android:onClick="@{() -> viewModel.buttonNavigateToCellarClicked()}"
-            />
+            android:text="City: Waregem" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name: Cellar num1" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Winegrower: Cintia" />
+
     </LinearLayout>
 </layout>
